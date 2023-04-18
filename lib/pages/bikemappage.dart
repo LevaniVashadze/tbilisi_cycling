@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class BikeMap extends StatefulWidget {
-  const BikeMap({Key? key}) : super(key: key);
+class BikeMapPage extends StatefulWidget {
+  const BikeMapPage({Key? key}) : super(key: key);
 
   @override
-  State<BikeMap> createState() => _BikeMapState();
+  State<BikeMapPage> createState() => _BikeMapPageState();
 }
 
 Uri url = Uri(
@@ -31,13 +31,10 @@ WebViewController controller = WebViewController()
   )
   ..loadRequest(url);
 
-class _BikeMapState extends State<BikeMap> {
+class _BikeMapPageState extends State<BikeMapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bike Map'),
-      ),
       body: Center(
         child: WebViewWidget(
           controller: controller,

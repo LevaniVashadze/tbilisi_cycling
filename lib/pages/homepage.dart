@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tbilisi_cycling/components/bikemap.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

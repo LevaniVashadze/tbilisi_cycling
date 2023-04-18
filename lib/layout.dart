@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tbilisi_cycling/components/bikemap.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tbilisi_cycling/pages/bikemappage.dart';
 import 'package:tbilisi_cycling/pages/homepage.dart';
 
 class Layout extends StatefulWidget {
@@ -20,12 +21,12 @@ class _LayoutState extends State<Layout> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    BikeMap(),
+    BikeMapPage(),
     Text(
-      'Index 2: Settings',
+      'Index 2: Guide',
     ),
     Text(
-      'Index 3: Guide',
+      'Index 3: Settings',
     ),
   ];
 
@@ -36,24 +37,24 @@ class _LayoutState extends State<Layout> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            label: AppLocalizations.of(context)!.home,
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Bike Map',
+            icon: const Icon(Icons.map),
+              label: AppLocalizations.of(context)!.map,
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.menu_book_sharp),
+            label: AppLocalizations.of(context)!.guide,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_sharp),
-            label: 'Guide',
+            icon: const Icon(Icons.settings),
+            label: AppLocalizations.of(context)!.settings,
           )
         ],
         selectedItemColor: Colors.redAccent,
