@@ -16,6 +16,8 @@ Uri url = Uri(
     'mid': '1_onK_6jbOEKixKAB46Wos7_U0sci_SE',
     'ehbc': '2E312F',
     'hl': 'en',
+    'll': '41.71694320106179%2C44.79438651170209',
+    'z': '14',
   },
 );
 
