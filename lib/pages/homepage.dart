@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tbilisi_cycling/components/bikemap.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Tbilisi Cycling'),
-      ),
-      body: const Center(
-        child: Text('Tbilisi Cycling'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BikeMap()));
-        },
-        tooltip: 'Bike Map',
-        child: const Icon(Icons.map),
-      ),
-    );
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+
+
+  @override
+  Widget build(BuildContext context ) {
+    return const Center(child: Text("Tbilisi Cycling"),);
   }
 }
