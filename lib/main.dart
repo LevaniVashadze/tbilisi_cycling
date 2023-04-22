@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tbilisi_cycling/layout.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -9,12 +10,33 @@ void main() {
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  static _MyAppState of(BuildContext context) =>
+      context.findAncestorStateOfType<_MyAppState>()!;
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system;
 
+  void loadThemeMode() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var mode = prefs.getString('theme');
+    if (mode == 'light') {
+      changeTheme(ThemeMode.light);
+    } else if (mode == 'dark') {
+      changeTheme(ThemeMode.dark);
+    } else {
+      changeTheme(ThemeMode.system);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadThemeMode();
+  }
 
   // This widget is the root of your application.
   @override
@@ -24,19 +46,19 @@ class _MyAppState extends State<MyApp> {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
         ),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ),
+        themeMode: _themeMode,
         home: const Layout()
     );
+  }
+  void changeTheme(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
+    });
   }
 }
 

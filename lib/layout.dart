@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tbilisi_cycling/pages/bikemappage.dart';
 import 'package:tbilisi_cycling/pages/homepage.dart';
+import 'package:tbilisi_cycling/pages/settingspage.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key}) : super(key: key);
@@ -19,15 +20,13 @@ class _LayoutState extends State<Layout> {
     });
   }
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static final List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     BikeMapPage(),
     Text(
       'Index 2: Guide',
     ),
-    Text(
-      'Index 3: Settings',
-    ),
+    SettingsPage()
   ];
 
   @override
