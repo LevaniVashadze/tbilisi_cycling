@@ -1,5 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:tbilisi_cycling/pages/bikemappage.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -55,9 +61,14 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        AppLocalizations.of(context)!.aboutText1,
+                      Linkify(
+                        text: AppLocalizations.of(context)!.aboutText1("https://github.com/LevaniVashadze/tbilisi_cycling"),
                         style: const TextStyle(fontSize: 20),
+                        onOpen: (link) async {
+
+                          await launchUrlString(link.url, mode: LaunchMode.externalApplication);
+
+                        },
                       ),
                     ],
                   ),

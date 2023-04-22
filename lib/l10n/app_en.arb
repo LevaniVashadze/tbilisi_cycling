@@ -8,7 +8,14 @@
   "light": "Light",
   "system": "System",
   "scroll": "Scroll down to learn more",
-  "aboutText1": "This app has been created to help cyclists get around safely in the City of Tbilisi. This project is developed by Levani Vashadze and is open source. You can find the source code at https://github.com/LevaniVashadze/tbilisi_cycling, this project is created as a Final Project in a Flutter Course.",
+  "aboutText1": "This app has been created to help cyclists get around safely in the City of Tbilisi. This project is developed by Levani Vashadze and is open source. You can find the source code at {gh_link}, this project is created as a Final Project in a Flutter Course.",
+  "@aboutText1" : {
+    "placeholders": {
+      "gh_link": {
+        "type": "String"
+      }
+    }
+  },
   "disclaimer": "The project was prepared within the framework of USAID's Civic Education Program, partner organization Geolab, at the final stage of the course. The program is implemented by PH international, funded by the US Agency for International Development (USAID) and supported by the Ministry of Education and Science of Georgia.",
   "finalNotes": "Built with Love by Levani Vashadze.",
   "staySafe": "Stay Safe"
