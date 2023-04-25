@@ -7,7 +7,7 @@
   "dark": "Dunkel",
   "light": "Hell",
   "system": "System",
-  "scroll": "Wisch nach unten, um mehr über dass Projekt zu erfahren",
+  "scroll": "Wisch nach unten, um mehr zu erfahren",
   "aboutText1": "Diese App wurde entwickelt, um Radfahrern zu helfen, sich sicher in der Stadt Tiflis fortzubewegen. Dieses Projekt wurde von Levani Vashadze entwickelt und ist Open Source. Den Quellcode finden Sie unter {gh_link}, dieses Projekt entstand als Abschlussprojekt in einem Flutter-Kurs.",
   "disclaimer": "Das Projekt wurde im Rahmen des Civic Education Program von USAID, Partnerorganisation Geolab, in der Abschlussphase des Kurses vorbereitet. Das Programm wird von PH international durchgeführt, von der US-Agentur für internationale Entwicklung (USAID) finanziert und vom georgischen Ministerium für Bildung und Wissenschaft unterstützt.",
   "finalNotes": "Mit Liebe erstellt von Levani Vashadze.",
