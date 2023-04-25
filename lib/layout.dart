@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tbilisi_cycling/pages/bikemappage.dart';
 import 'package:tbilisi_cycling/pages/homepage.dart';
 import 'package:tbilisi_cycling/pages/settingspage.dart';
+import 'package:tbilisi_cycling/pages/guidepage.dart';
 
 class Layout extends StatefulWidget {
   const Layout({Key? key}) : super(key: key);
@@ -21,19 +22,19 @@ class _LayoutState extends State<Layout> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    BikeMapPage(),
-    Text(
-      'Index 2: Guide',
-    ),
-    SettingsPage()
+    const HomePage(),
+    const BikeMapPage(),
+    const GuidePage(),
+    const SettingsPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: SafeArea(
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

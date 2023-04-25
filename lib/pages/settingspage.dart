@@ -16,8 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
@@ -40,9 +39,25 @@ class _SettingsPageState extends State<SettingsPage> {
                 }).toList(),
               ),
             ),
+            ListTile(
+              title: Text(AppLocalizations.of(context)!.language),
+              trailing: DropdownButton<String>(
+                value: AppLocalizations.of(context)!.localeName,
+                onChanged: (String? value) async {
+                  final prefs = await SharedPreferences.getInstance();
+                  prefs.setString("language", value!);
+                  MyApp.of(context).changeLanguage(value);
+                },
+                items: AppLocalizations.supportedLocales.map((Locale locale) {
+                  return DropdownMenuItem<String>(
+                    value: locale.languageCode,
+                    child: Text(locale.languageCode == "de" ? "Deutsch" : locale.languageCode == "ka" ? "ქართული" : "English"),
+                  );
+                }).toList(),
+              ),
+            )
           ],
         ),
-      )
     );
   }
 }

@@ -3,8 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:tbilisi_cycling/pages/bikemappage.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,9 +17,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height - 100,
-          width: MediaQuery.of(context).size.width - 100,
+        Container(
+          height: MediaQuery.of(context).size.height - 70,
+          width: MediaQuery.of(context).size.width - 70,
+          padding: const EdgeInsets.all(32.0),
           child: Stack(
             children: [
               Center(
@@ -50,42 +49,41 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        SizedBox(
+        Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
+          color: Colors.redAccent,
+          padding: const EdgeInsets.all(32.0),
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Linkify(
-                        text: AppLocalizations.of(context)!.aboutText1("https://github.com/LevaniVashadze/tbilisi_cycling"),
-                        style: const TextStyle(fontSize: 20),
-                        onOpen: (link) async {
-
-                          await launchUrlString(link.url, mode: LaunchMode.externalApplication);
-
-                        },
-                      ),
-                    ],
-                  ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Linkify(
+                      text: AppLocalizations.of(context)!.aboutText1(
+                          "https://github.com/LevaniVashadze/tbilisi_cycling"),
+                      style: const TextStyle(fontSize: 20, color: Colors.white),
+                      onOpen: (link) async {
+                        await launchUrlString(link.url,
+                            mode: LaunchMode.externalApplication);
+                      },
+                    ),
+                  ],
                 ),
               ),
               Align(
                   alignment: Alignment.bottomCenter,
-                  child: Text(AppLocalizations.of(context)!.scroll)),
+                  child: Text(AppLocalizations.of(context)!.scroll, style: const TextStyle(color: Colors.white),)),
             ],
           ),
         ),
-        SizedBox(
+        Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: Padding(
-            padding: const EdgeInsets.all(32.0),
-            child: Stack(
+          color: Colors.yellow,
+          padding: const EdgeInsets.all(32.0),
+          child: Stack(
               children: [
                 Center(
                   child: Column(
@@ -93,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         AppLocalizations.of(context)!.disclaimer,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20, color: Colors.pinkAccent),
                       ),
                     ],
                   ),
@@ -103,11 +101,11 @@ class _HomePageState extends State<HomePage> {
                   child: Text(
                     "${AppLocalizations.of(context)!.finalNotes}\n${AppLocalizations.of(context)!.staySafe}",
                     textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.pinkAccent),
                   ),
                 )
               ],
             ),
-          ),
         ),
       ],
     );

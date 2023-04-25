@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tbilisi_cycling/layout.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -19,6 +20,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = ThemeMode.system;
+  String localeName = 'en';
+
 
   void loadThemeMode() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -32,17 +35,33 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  void loadLanguage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var language = prefs.getString('language');
+    if (language == 'de') {
+      changeLanguage('de');
+    } else if (language == 'ka') {
+      changeLanguage('ka');
+    } else if (language == 'en') {
+      changeLanguage('en');
+    } else {
+      changeLanguage('system');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     loadThemeMode();
+    loadLanguage();
   }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Tbilisi Cycling',
+        locale: localeName == 'de' ? const Locale('de') : localeName == 'ka' ? const Locale('ka') : localeName == "en" ? const Locale('en') : null,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
@@ -60,6 +79,13 @@ class _MyAppState extends State<MyApp> {
       _themeMode = themeMode;
     });
   }
+
+  void changeLanguage(String language) {
+    setState(() {
+      localeName = language;
+    });
+  }
+
 }
 
 

@@ -9,7 +9,7 @@
   "system": "System",
   "scroll": "Scroll down to learn more",
   "aboutText1": "This app has been created to help cyclists get around safely in the City of Tbilisi. This project is developed by Levani Vashadze and is open source. You can find the source code at {gh_link}, this project is created as a Final Project in a Flutter Course.",
-  "@aboutText1" : {
+  "@aboutText1": {
     "placeholders": {
       "gh_link": {
         "type": "String"
@@ -18,5 +18,24 @@
   },
   "disclaimer": "The project was prepared within the framework of USAID's Civic Education Program, partner organization Geolab, at the final stage of the course. The program is implemented by PH international, funded by the US Agency for International Development (USAID) and supported by the Ministry of Education and Science of Georgia.",
   "finalNotes": "Built with Love by Levani Vashadze.",
-  "staySafe": "Stay Safe"
+  "staySafe": "Stay Safe",
+  "language": "Language",
+  "guideTitle": "Safe Cycling Guide",
+  "guideText": "Cycling is a great way to get around the city, but it can be dangerous if you don't know the rules of the road. Here are some tips to help you stay safe on the road.",
+  "guideText1": "Always wear a helmet. Since it's not very safe to ride a bike in Tbilisi, it's important to wear a helmet to protect your head in case of an accident.",
+  "guideTitle1": "Always wear a helmet",
+  "guideTitle2": "Abide by traffic rules",
+  "guideText2": "Always obey traffic rules. You should always ride on the right side of the road, and follow general road rules.",
+  "guideTitle3": "Use hand signals",
+  "guideText3": "Use hand signals to communicate with other road users. This will help you avoid accidents.",
+  "guideTitle4": "Use lights",
+  "guideText4": "Use lights to make yourself visible to other road users. This will help you avoid accidents.",
+  "guideTitle5": "Position yourself correctly",
+  "guideText5": "When riding in road traffic, you should position yourself correctly. You shouldn't ride too close to the curb, and you should always ride in the same direction as the traffic.",
+  "guideTitle6": "How to fend off dogs",
+  "guideText6": "If you encounter a dog, you should not panic. You should try to stay calm, and if needed stop. If the dog is aggressive, get the bike in between the dog and you.",
+  "guideTitle7": "Route planning",
+  "guideText7": "Plan your route before you start cycling. This will help you avoid dangerous areas. Ride on side streets to avoid heavy traffic, use bus lanes and bike lanes.",
+  "guideTitle8": "Stay safe!",
+  "guideText8": "At the end of the day, the most important thing is to stay safe. If you feel unsafe, you should stop and find another route."
 }
